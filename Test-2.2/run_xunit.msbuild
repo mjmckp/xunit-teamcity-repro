@@ -1,0 +1,16 @@
+<Project DefaultTargets="Test" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask
+    AssemblyFile="..\..\..\packages\xunit.runner.msbuild.2.2.0\build\net452\xunit.runner.msbuild.dll"
+    TaskName="Xunit.Runner.MSBuild.xunit"/>
+	
+  <ItemGroup>
+	  <Assemblies Include="Test-*.dll" />
+  </ItemGroup>
+
+  <Target Name="Test">
+	  <Message Text="Assemblies: @(Assemblies)" Importance="High" />	
+	  <xunit Assemblies="@(Assemblies)" ShadowCopy="false" />
+  </Target>
+
+</Project>
